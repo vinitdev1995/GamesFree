@@ -114,7 +114,7 @@ const Cards = () => {
             <div className="google-adds-div"></div>
             <Row>
                 <Col sm="9">
-                    <Row>
+                    <Row className="justify-content-center">
                         {data.map((item) =>
                                 (
                                     <Card className="m-3">
