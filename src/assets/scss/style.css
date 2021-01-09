@@ -2078,6 +2078,25 @@ pre code {
     background: #0a2c4a;
 }
 
+.game-detail-header{
+    height: 80px;
+    padding: 12px;
+    display: block;
+    background-color: #2e4169;
+    margin-bottom: 24px;
+    border-bottom: 3px solid #ffffff;
+}
+.game-detail-box{
+    display: block;
+    padding: 24px 12px;
+    margin-top: 24px;
+    font-size: 16px;
+    background-color: #fbfcfd;
+    border: 1px solid #e9f0f7;
+}
+.text-black{
+    color: #000000;
+}
 .sidebar-thumbs{
     margin-left: 0;
     display: block;

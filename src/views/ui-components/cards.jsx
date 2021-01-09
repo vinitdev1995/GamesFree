@@ -111,7 +111,7 @@ const sideBarDate = [
 const Cards = () => {
     return (
         <div>
-            <div className="google-adds-div"></div>
+            <div className="google-adds-div" />
             <Row>
                 <Col sm="9">
                     <Row className="justify-content-center">
