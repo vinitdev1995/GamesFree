@@ -108,7 +108,10 @@ const sideBarDate = [
     }
 ];
 
-const Cards = () => {
+const Cards = (props) => {
+    const handleClick = () => {
+        props.history.push('/gamesDetails')
+    };
     return (
         <div>
             <div className="google-adds-div" />
@@ -117,7 +120,7 @@ const Cards = () => {
                     <Row className="justify-content-center">
                         {data.map((item) =>
                                 (
-                                    <Card className="m-3">
+                                    <Card className="m-3" onClick={handleClick}>
                                         <CardImg top width="100%" src={item.image || img4} alt="Card image cap"/>
                                         <CardBody>
                                             <CardTitle>{item.name}</CardTitle>
