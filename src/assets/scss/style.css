@@ -2066,8 +2066,9 @@ pre code {
 .google-adds-div{
     display: block;
     margin: 34px;
-    min-width: 728px;
+    max-width: 1175px;
     min-height: 90px;
+    height: auto;
     background: #0a2c4a;
 }
 .sidebar-ads{
@@ -2087,7 +2088,6 @@ pre code {
     border-bottom: 3px solid #ffffff;
 }
 .game-detail-box{
-    display: block;
     padding: 24px 12px;
     margin-top: 24px;
     font-size: 16px;
@@ -12861,6 +12861,9 @@ Preloader
         /*Header position*/
     }
 
+    .side-games{
+        display: none !important;
+    }
     #main-wrapper[data-sidebartype='mini-sidebar'] .left-sidebar {
         left: -250px;
     }

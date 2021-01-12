@@ -20,31 +20,31 @@ const GamesDetails = () => {
                 <img src={items.image} style={{height: 60}} />
             </div>
             <div className="d-flex flex-row justify-content-between container">
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column side-games">
                     <img src={snakeImage} className="mt-3" style={{height: 97, width:145}} />
                     <img src={snakeImage} className="mt-3" style={{height: 97, width:145}} />
                     <img src={snakeImage} className="mt-3" style={{height: 97, width:145}} />
                     <img src={snakeImage} className="mt-3" style={{height: 97, width:145}} />
                 </div>
-                <div>
-                    <img src={gameBGImage} style={{ width:'100%'}} />
+                <div className="w-100 text-center">
+                    <iframe src="https://play.famobi.com/fuzzies/A-FAMOBI-COM" style={{ width: '90%', height: 500}} />
                 </div>
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column side-games">
                     <img src={snakeImage} className="mt-3" style={{height: 97, width:145}} />
                     <img src={snakeImage} className="mt-3" style={{height: 97, width:145}} />
                     <img src={snakeImage} className="mt-3" style={{height: 97, width:145}} />
                     <img src={snakeImage} className="mt-3" style={{height: 97, width:145}} />
                 </div>
             </div>
-            <div className="game-detail-box d-flex flex-row">
-                <div className="mr-4">
+            <Row className="game-detail-box">
+                <Col sm={6} lg={6}>
                     <img src={ChristmasImage} />
-                </div>
-                <div>
+                </Col>
+                <Col sm={6} lg={6} className="mt-4">
                     <h3 className="text-black">Christmas Pong</h3>
                     <p>Have fun playing this Christmas-themed Pong!<br/> <br />Score points by getting the Santa puck past your opponent's paddle<br /><br />Be the first to reach 3 points to win the game</p>
-                </div>
-            </div>
+                </Col>
+            </Row>
         </>
     );
 
