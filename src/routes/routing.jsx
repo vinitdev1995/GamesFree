@@ -7,6 +7,7 @@
 
 import Cards from '../views/ui-components/cards.jsx';
 import GamesDetails from '../views/ui-components/gamesDetail';
+import GameView from "../views/ui-components/gameView";
 var ThemeRoutes = [
   {
     path: '/card',
@@ -18,6 +19,7 @@ var ThemeRoutes = [
     name: 'gamesDetails',
     component: GamesDetails
   },
+
   {
     path: '/',
     name: 'Cards',

@@ -2071,6 +2071,44 @@ pre code {
     height: auto;
     background: #0a2c4a;
 }
+.card-image{
+    display: block;
+    max-width: 260px;
+    max-height: 173px;
+    width: 100%;
+}
+.games-view{
+    flex-direction: row;
+    overflow-x: scroll;
+    display: inline-flex;
+}
+.game-card-image{
+    width: 250px !important;
+}
+.game-card{
+    max-width: 260px;
+}
+.grid-game{
+    display: grid;
+    grid-gap: 24px;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: max-content;
+    max-width: 1140px;
+    margin: auto;
+    justify-items: center;
+    margin-bottom: 24px;
+    align-items: center;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.pt-70{
+    padding-top: 70px;
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
 .sidebar-ads{
     border: 0pt none;
     display: inline-block;
@@ -2189,6 +2227,22 @@ pre code {
 
     .table-responsive-sm>.table-bordered {
         border: 0;
+    }
+}
+
+@media (max-width: 621px) {
+    .game-view-card{
+        max-width: 320px;
+        width: calc(100% - 24px)!important;
+        margin-bottom: 24px;
+        min-width: unset !important;
+    }
+    .grid-game{
+        width: 100%;
+        display: flex;
+        margin: auto;
+        grid-gap: 20px;
+        overflow-x: scroll;
     }
 }
 

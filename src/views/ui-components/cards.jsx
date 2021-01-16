@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     Card,
     CardImg,
@@ -11,6 +11,7 @@ import {
 import img4 from '../../assets/images/big/img4.jpg';
 import ChristmasImage from '../../assets/images/Cards/ChristmasPong.jpg';
 import thumbImage from '../../assets/images/sidebox/market_105x70.jpg'
+import addImage from "../../assets/images/add.gif";
 
 const data = [
     {
@@ -109,8 +110,18 @@ const sideBarDate = [
 ];
 
 const Cards = (props) => {
-    const handleClick = () => {
-        props.history.push('/gamesDetails')
+    const [gamesList, setGamesList] = useState([]);
+    useEffect(()=>{
+        fetch("https://games.gamepix.com/games").then((res)=>{
+            res.json().then((res)=> {
+                setGamesList(res.data);
+            })
+        }).catch((e)=>{
+            console.log(e)
+        });
+    },[]);
+    const handleClick = (link) => {
+        props.history.push('/gamesDetails?link='+link)
     };
     return (
         <div>
@@ -118,14 +129,17 @@ const Cards = (props) => {
             <Row>
                 <Col sm="9">
                     <Row className="justify-content-center">
-                        {data.map((item) =>
+                        {gamesList && gamesList.map((item, index) =>
                                 (
-                                    <Card className="m-3" onClick={handleClick}>
-                                        <CardImg top width="100%" src={item.image || img4} alt="Card image cap"/>
-                                        <CardBody>
-                                            <CardTitle>{item.name}</CardTitle>
-                                        </CardBody>
-                                    </Card>
+                                    <>
+                                        <Card className="m-3 game-card cursor-pointer" onClick={()=> handleClick(item.url)}>
+                                            <CardImg top width="100%" src={item.thumbnailUrl || img4} alt="Card image cap" className="card-image"/>
+                                            <CardBody>
+                                                <CardTitle>{item.title}</CardTitle>
+                                            </CardBody>
+                                        </Card>
+                                        {(window.innerWidth < 767) &&  ((index + 1) % 2 === 0 )&& <div className="m-auto" style={{verticalAlign:'middle', textAlign:"center"}}><img src={addImage} width={300} /></div>}
+                                    </>
                                 ))
                         }
                     </Row>
@@ -134,11 +148,11 @@ const Cards = (props) => {
 
                     <div className="sidebar-ads"/>
                     <h3 className="mt-2 text-white">New Games</h3>
-                    {sideBarDate.map(items => (
-                        <div className="sidebar-thumbs mt-2">
+                    {gamesList.sort(() => Math.random() - Math.random()).slice(0, 4).map(item => (
+                        <div className="sidebar-thumbs cursor-pointer mt-2" onClick={()=> handleClick(item.url)}>
                             <div className="d-flex flex-row bg-white">
-                                <img src={items.image || thumbImage} className="mr-2" />
-                                <div className="mt-4">{items.name}</div>
+                                <img src={item.thumbnailUrl || thumbImage} className="mr-2" style={{ width: 105 }} />
+                                <div className="mt-4">{item.title}</div>
                             </div>
                         </div>
                     ))}
@@ -146,11 +160,11 @@ const Cards = (props) => {
                     <div className="mt-4" />
 
                     <h3 className="mt-2 text-white">Random Games</h3>
-                    {sideBarDate.map(items => (
-                        <div className="sidebar-thumbs mt-2">
+                    {gamesList.sort(() => Math.random() - Math.random()).slice(0, 4).map(item => (
+                        <div className="sidebar-thumbs cursor-pointer mt-2" onClick={()=> handleClick(item.url)}>
                             <div className="d-flex flex-row bg-white">
-                                <img src={items.image || thumbImage} className="mr-2" />
-                                <div className="mt-4">{items.name}</div>
+                                <img src={item.thumbnailUrl || thumbImage} className="mr-2" style={{ width: 105 }} />
+                                <div className="mt-4">{item.title}</div>
                             </div>
                         </div>
                     ))}
@@ -158,11 +172,11 @@ const Cards = (props) => {
                     <div className="mt-4" />
 
                     <h3 className="mt-2 text-white">Latest Articles</h3>
-                    {sideBarDate.map(items => (
-                        <div className="sidebar-thumbs mt-2">
+                    {gamesList.sort(() => Math.random() - Math.random()).slice(0, 4).map(item => (
+                        <div className="sidebar-thumbs cursor-pointer mt-2" onClick={()=> handleClick(item.url)}>
                             <div className="d-flex flex-row bg-white">
-                                <img src={items.image || thumbImage} className="mr-2" />
-                                <div className="mt-4">{items.name}</div>
+                                <img src={item.thumbnailUrl || thumbImage} className="mr-2" style={{ width: 105 }} />
+                                <div className="mt-4">{item.title}</div>
                             </div>
                         </div>
                     ))}
