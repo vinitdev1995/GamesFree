@@ -110,6 +110,7 @@ const sideBarDate = [
 ];
 
 const Cards = (props) => {
+    window.scroll(0 ,0)
     const [gamesList, setGamesList] = useState([]);
     useEffect(()=>{
         fetch("https://games.gamepix.com/games").then((res)=>{

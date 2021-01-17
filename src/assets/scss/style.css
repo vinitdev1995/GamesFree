@@ -12640,9 +12640,7 @@ Preloader
 .page-wrapper>.page-content {
     padding: 30px;
     max-width: 1300px;
-    min-height: calc(100vh - 116px);
-
-
+    /*min-height: calc(100vh - 116px);*/
 }
 
 .page-breadcrumb {

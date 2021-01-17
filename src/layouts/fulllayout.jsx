@@ -84,7 +84,7 @@ const Fulllayout = (props) => {
                         })}
                     </Switch>
                 </div>
-                <Footer />
+                <Footer {...props}/>
             </div>
         </div>
     );

@@ -22,6 +22,7 @@ import logolighticon from '../../assets/images/logo-light-icon.png';
 import logodarktext from '../../assets/images/logo-text.png';
 import logolighttext from '../../assets/images/logo-light-text.png';
 import profilephoto from '../../assets/images/users/1.jpg';
+import {Link} from "react-router-dom";
 
 const Header = () => {
 
@@ -44,23 +45,12 @@ const Header = () => {
                     {/*--------------------------------------------------------------------------------*/}
                     {/* Logos Or Icon will be goes here for Light Layout && Dark Layout                */}
                     {/*--------------------------------------------------------------------------------*/}
-                    <NavbarBrand href="/">
-                        <b className="logo-icon">
-                            <img src={logodarkicon} alt="homepage" className="dark-logo" />
-                            <img
-                                src={logolighticon}
-                                alt="homepage"
-                                className="light-logo"
-                            />
-                        </b>
-                        <span className="logo-text">
-                            <img src={logodarktext} alt="homepage" className="dark-logo" />
-                            <img
-                                src={logolighttext}
-                                className="light-logo"
-                                alt="homepage"
-                            />
-                        </span>
+                    <NavbarBrand>
+                        <Link to="/">
+                        <div className="logo-text" style={{color:"white"}}>
+                            Games Free
+                        </div>
+                        </Link>
                     </NavbarBrand>
                     {/*--------------------------------------------------------------------------------*/}
                     {/* Mobile View Toggler  [visible only after 768px screen]                         */}
@@ -82,13 +72,6 @@ const Header = () => {
                         {/* Start Search-box toggle                                                        */}
                         {/*--------------------------------------------------------------------------------*/}
                         <NavItem className="hidden-sm-down search-box">
-                            <NavLink
-                                href="#"
-                                className="hidden-sm-down"
-                                onClick={toggleMenu.bind(null)}
-                            >
-                                <i className="ti-search" />
-                            </NavLink>
                             <Form className="app-search" id="search">
                                 <Input type="text" placeholder="Search & enter" />
                                 <button className="btn-link srh-btn" onClick={toggleMenu.bind(null)}>
