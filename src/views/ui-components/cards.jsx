@@ -129,18 +129,23 @@ const Cards = (props) => {
             <div className="google-adds-div" />
             <Row>
                 <Col sm="9">
-                    <Row className="justify-content-center">
+                    <Row>
                         {gamesList && gamesList.map((item, index) =>
                                 (
+
                                     <>
-                                        <Card className="m-3 game-card cursor-pointer" onClick={()=> handleClick(item.url)}>
-                                            <CardImg top width="100%" src={item.thumbnailUrl || img4} alt="Card image cap" className="card-image"/>
-                                            <CardBody>
-                                                <CardTitle>{item.title}</CardTitle>
-                                            </CardBody>
-                                        </Card>
-                                        {(window.innerWidth < 767) &&  ((index + 1) % 2 === 0 )&& <div className="m-auto" style={{verticalAlign:'middle', textAlign:"center"}}><img src={addImage} width={300} /></div>}
+                                        <Col md={4} sm={6} xs={8} lg={4}>
+                                            <Card className=" mb-3 game-card cursor-pointer" onClick={()=> handleClick(item.url)}>
+                                                <CardImg top width="100%" src={item.thumbnailUrl || img4} alt="Card image cap" className="card-image"/>
+                                                <CardBody>
+                                                    <CardTitle>{item.title}</CardTitle>
+                                                </CardBody>
+                                            </Card>
+
+                                        </Col>
+                                        {(window.innerWidth < 767) &&  ((index + 1) % 2 === 0 )&& <div className="mb-3"><img src={addImage} width={300} /></div>}
                                     </>
+
                                 ))
                         }
                     </Row>
