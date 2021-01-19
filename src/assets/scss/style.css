@@ -12224,7 +12224,7 @@ Preloader
 
 #main-wrapper[data-layout='vertical'] .topbar .top-navbar .navbar-header[data-logobg='skin4'],
 #main-wrapper[data-layout='horizontal'] .topbar .top-navbar .navbar-header[data-logobg='skin4'] {
-    background: transparent;
+    background: #1f4068;
 }
 
 #main-wrapper[data-layout='vertical'] .topbar .top-navbar .navbar-header[data-logobg='skin5'],
@@ -12279,7 +12279,7 @@ Preloader
 #main-wrapper[data-layout='vertical'] .topbar[data-navbarbg='skin4'],
 #main-wrapper[data-layout='horizontal'] .topbar .navbar-collapse[data-navbarbg='skin4'],
 #main-wrapper[data-layout='horizontal'] .topbar[data-navbarbg='skin4'] {
-    background: transparent;
+    background: #1f4068;
 }
 
 #main-wrapper[data-layout='vertical'] .topbar .navbar-collapse[data-navbarbg='skin5'],
