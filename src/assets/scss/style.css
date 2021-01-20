@@ -10931,6 +10931,9 @@ a.text-inverse:focus {
 .card .card-title {
     position: relative;
     font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card .card-actions {

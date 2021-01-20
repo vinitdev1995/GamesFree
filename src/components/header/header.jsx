@@ -40,6 +40,7 @@ const Header = () => {
 
     return (
         <header className="topbar navbarbg" data-navbarbg="skin4">
+            <script data-ad-client="ca-pub-1604515918312354" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <Navbar className="top-navbar" dark expand="md">
                 <div className="navbar-header" id="logobg" data-logobg="skin4">
                     {/*--------------------------------------------------------------------------------*/}

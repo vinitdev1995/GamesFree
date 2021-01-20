@@ -134,7 +134,7 @@ const Cards = (props) => {
                                 (
 
                                     <>
-                                        <Col md={4} sm={6} xs={8} lg={4}>
+                                        <Col md={4} sm={6} xs={8} lg={4} className="m-auto">
                                             <Card className=" mb-3 game-card cursor-pointer" onClick={()=> handleClick(item.url)}>
                                                 <CardImg top width="100%" src={item.thumbnailUrl || img4} alt="Card image cap" className="card-image"/>
                                                 <CardBody>
@@ -143,7 +143,7 @@ const Cards = (props) => {
                                             </Card>
 
                                         </Col>
-                                        {(window.innerWidth < 767) &&  ((index + 1) % 2 === 0 )&& <div className="mb-3"><img src={addImage} width={300} /></div>}
+                                        {/*{(window.innerWidth < 767) &&  ((index + 1) % 2 === 0 )&& <div className="mb-3"><img src={addImage} width={300} /></div>}*/}
                                     </>
 
                                 ))
