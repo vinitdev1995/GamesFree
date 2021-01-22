@@ -18,6 +18,7 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
+        "deploy": "scp -r ./build/* root@159.203.125.137:/www/wwwroot/gamesfree.live",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
