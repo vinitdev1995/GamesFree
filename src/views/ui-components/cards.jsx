@@ -126,7 +126,15 @@ const Cards = (props) => {
     };
     return (
         <div>
-            <div className="google-adds-div" />
+            <ins className="adsbygoogle"
+                 style={{display:"block"}}
+                 data-ad-client="ca-pub-1604515918312354"
+                 data-ad-slot="5312622969"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
             <Row>
                 <Col sm="9">
                     <Row>
@@ -152,7 +160,15 @@ const Cards = (props) => {
                 </Col>
                 <Col sm="5" md="3">
 
-                    <div className="sidebar-ads"/>
+                    <ins className="adsbygoogle"
+                         style={{display:"block"}}
+                         data-ad-client="ca-pub-1604515918312354"
+                         data-ad-slot="7364071234"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                     <h3 className="mt-2 text-white">New Games</h3>
                     {gamesList.sort(() => Math.random() - Math.random()).slice(0, 4).map(item => (
                         <div className="sidebar-thumbs cursor-pointer mt-2" onClick={()=> handleClick(item.url)}>
