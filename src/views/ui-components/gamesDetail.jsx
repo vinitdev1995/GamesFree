@@ -27,6 +27,9 @@ const GamesDetails = (props) => {
     useEffect(()=>{
         let data = gamesList.find((item) => item.url === link);
         setGameDetail(data);
+        const s = document.createElement('script');
+        s.innerHTML = "googletag.cmd.push(function() { googletag.display('div-gpt-ad-1612773232807-0'); });";
+        document.body.appendChild(s);
     }, [gamesList, link]);
     const handleClick = (link) => {
         setLink(link)
@@ -38,7 +41,8 @@ const GamesDetails = (props) => {
 
     return(
         <>
-            <div className="google-adds-div" />
+            <div id='div-gpt-ad-1612773232807-0'>
+            </div>
             <div className="game-detail-header d-flex justify-content-between align-items-center">
                 <img src={HomeIcon} onClick={handleHomeClick} className="cursor-pointer" />
                 <h3 className="text-white">{gameDetail && gameDetail.title || '' }</h3>
