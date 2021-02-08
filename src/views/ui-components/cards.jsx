@@ -9,105 +9,8 @@ import {
 } from 'reactstrap';
 
 import img4 from '../../assets/images/big/img4.jpg';
-import ChristmasImage from '../../assets/images/Cards/ChristmasPong.jpg';
 import thumbImage from '../../assets/images/sidebox/market_105x70.jpg'
-import addImage from "../../assets/images/add.gif";
 
-const data = [
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },{
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },{
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    },
-    {
-        "name" : "Christmas Pong",
-        "image": ChristmasImage
-    }
-];
-
-const sideBarDate = [
-    {
-        "name": "FlipSurf.io",
-        "image": thumbImage
-    },
-    {
-        "name": "FlipSurf.io",
-        "image": thumbImage
-    },
-    {
-        "name": "FlipSurf.io",
-        "image": thumbImage
-    }
-];
 
 const Cards = (props) => {
     window.scroll(0 ,0)
@@ -120,21 +23,24 @@ const Cards = (props) => {
         }).catch((e)=>{
             console.log(e)
         });
+        const s = document.createElement('script');
+        s.innerHTML = "googletag.cmd.push(function() { googletag.display('div-gpt-ad-1612773232807-0'); });";
+        document.body.appendChild(s);
+        const s1 = document.createElement('script');
+        s1.innerHTML = "googletag.cmd.push(function() { googletag.display('div-gpt-ad-1612773275670-0'); });";
+        document.body.appendChild(s1);
+        // return () => {
+        //     document.body.removeChild(s, s1);
+        // }
     },[]);
     const handleClick = (link) => {
         props.history.push('/gamesDetails?link='+link)
     };
     return (
         <div>
-            <ins className="adsbygoogle"
-                 style={{display:"block"}}
-                 data-ad-client="ca-pub-1604515918312354"
-                 data-ad-slot="5312622969"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <div id='div-gpt-ad-1612773232807-0'>
+            </div>
+
             <Row>
                 <Col sm="9">
                     <Row>
@@ -160,15 +66,9 @@ const Cards = (props) => {
                 </Col>
                 <Col sm="5" md="3">
 
-                    <ins className="adsbygoogle"
-                         style={{display:"block"}}
-                         data-ad-client="ca-pub-1604515918312354"
-                         data-ad-slot="7364071234"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
+                    <div id='div-gpt-ad-1612773275670-0'>
+                    </div>
+
                     <h3 className="mt-2 text-white">New Games</h3>
                     {gamesList.sort(() => Math.random() - Math.random()).slice(0, 4).map(item => (
                         <div className="sidebar-thumbs cursor-pointer mt-2" onClick={()=> handleClick(item.url)}>
