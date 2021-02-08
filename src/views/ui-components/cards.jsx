@@ -7,10 +7,12 @@ import {
     Row,
     Col
 } from 'reactstrap';
+import {Bling as GPT} from "react-gpt";
 
 import img4 from '../../assets/images/big/img4.jpg';
 import thumbImage from '../../assets/images/sidebox/market_105x70.jpg'
 
+GPT.enableSingleRequest();
 
 const Cards = (props) => {
     window.scroll(0 ,0)
@@ -23,15 +25,6 @@ const Cards = (props) => {
         }).catch((e)=>{
             console.log(e)
         });
-        const s = document.createElement('script');
-        s.innerHTML = "googletag.cmd.push(function() { googletag.display('div-gpt-ad-1612773232807-0'); });";
-        document.body.appendChild(s);
-        const s1 = document.createElement('script');
-        s1.innerHTML = "googletag.cmd.push(function() { googletag.display('div-gpt-ad-1612773275670-0'); });";
-        document.body.appendChild(s1);
-        // return () => {
-        //     document.body.removeChild(s, s1);
-        // }
     },[]);
     const handleClick = (link) => {
         props.history.push('/gamesDetails?link='+link)
@@ -39,6 +32,7 @@ const Cards = (props) => {
     return (
         <div>
             <div id='div-gpt-ad-1612773232807-0'>
+                <GPT adUnitPath="/419163168/https:////gamesfree.live.RectangleBanner" slotSize={[[180, 150], [336, 280], [300, 100], [300, 250]]}  />
             </div>
 
             <Row>
@@ -67,6 +61,7 @@ const Cards = (props) => {
                 <Col sm="5" md="3">
 
                     <div id='div-gpt-ad-1612773275670-0'>
+                        <GPT adUnitPath="/419163168/https:////gamesfree.live.SquareBanner" slotSize={[[200, 200], [320, 320], [250, 250]]}  />
                     </div>
 
                     <h3 className="mt-2 text-white">New Games</h3>

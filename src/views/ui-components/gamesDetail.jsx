@@ -3,7 +3,9 @@ import { Card, CardBody, Tooltip, Row, Col } from 'reactstrap';
 import HomeIcon from '../../assets/images/market_home.png';
 import ChristmasImage from '../../assets/images/Cards/ChristmasPong.jpg';
 import snakeImage from '../../assets/images/market_260x173.jpg';
+import {Bling as GPT} from "react-gpt";
 
+GPT.enableSingleRequest();
 const items = {
     name:"Christmas Pong",
     image: ChristmasImage
@@ -27,9 +29,6 @@ const GamesDetails = (props) => {
     useEffect(()=>{
         let data = gamesList.find((item) => item.url === link);
         setGameDetail(data);
-        const s = document.createElement('script');
-        s.innerHTML = "googletag.cmd.push(function() { googletag.display('div-gpt-ad-1612773232807-0'); });";
-        document.body.appendChild(s);
     }, [gamesList, link]);
     const handleClick = (link) => {
         setLink(link)
@@ -42,6 +41,7 @@ const GamesDetails = (props) => {
     return(
         <>
             <div id='div-gpt-ad-1612773232807-0'>
+                <GPT adUnitPath="/419163168/https:////gamesfree.live.RectangleBanner" slotSize={[[180, 150], [336, 280], [300, 100], [300, 250]]}  />
             </div>
             <div className="game-detail-header d-flex justify-content-between align-items-center">
                 <img src={HomeIcon} onClick={handleHomeClick} className="cursor-pointer" />
