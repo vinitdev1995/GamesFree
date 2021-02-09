@@ -2093,7 +2093,7 @@ pre code {
     grid-gap: 24px;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: max-content;
-    max-width: 1140px;
+    max-width: 1000px;
     margin: auto;
     justify-items: center;
     margin-bottom: 24px;
@@ -13510,6 +13510,17 @@ use profile section
         -webkit-transform: scale3d(1, 1, 0.5);
         transform: scale3d(1, 1, 0.5);
     }
+}
+
+.game-view-card:hover{
+    box-shadow: 2px 4px 10px 0 rgb(0 0 0 / 20%);
+}
+
+.game-view-card .card-body{
+    padding: 10px;
+}
+.game-view-card .card-title{
+    margin: 0px !important;
 }
 
 .user-profile .profile-img img {

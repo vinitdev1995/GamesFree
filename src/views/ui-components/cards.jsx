@@ -27,12 +27,16 @@ const Cards = (props) => {
         });
     },[]);
     const handleClick = (link) => {
-        props.history.push('/gamesDetails?link='+link)
+        window.location.href = '/#/gamesDetails?link='+link
     };
     return (
         <div>
-            <div id='div-gpt-ad-1612773232807-0'>
-                <GPT adUnitPath="/419163168/https:////gamesfree.live.RectangleBanner" slotSize={[[180, 150], [336, 280], [300, 100], [300, 250]]}  />
+            <div id='div-gpt-ad-1612773232807-0' className="mb-3 text-center">
+                <GPT adUnitPath="/419163168/https:////gamesfree.live.RectangleBanner" sizeMapping={[
+                    {viewport: [0, 0], slot: [320, 50]},
+                    {viewport: [750, 0], slot: [728, 90]},
+                    {viewport: [1200, 0], slot: [1024, 120]}
+                ]}  />
             </div>
 
             <Row>
@@ -60,8 +64,12 @@ const Cards = (props) => {
                 </Col>
                 <Col sm="5" md="3">
 
-                    <div id='div-gpt-ad-1612773275670-0'>
-                        <GPT adUnitPath="/419163168/https:////gamesfree.live.SquareBanner" slotSize={[[200, 200], [320, 320], [250, 250]]}  />
+                    <div id='div-gpt-ad-1612773275670-0' className="mb-3 text-center">
+                        <GPT adUnitPath="/419163168/https:////gamesfree.live.SquareBanner" sizeMapping={[
+                            {viewport: [0, 0], slot: [200, 200]},
+                            {viewport: [750, 0], slot: [250, 250]},
+                            {viewport: [1200, 0], slot: [320, 320]}
+                        ]}  />
                     </div>
 
                     <h3 className="mt-2 text-white">New Games</h3>

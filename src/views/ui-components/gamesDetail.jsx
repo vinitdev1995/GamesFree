@@ -6,10 +6,7 @@ import snakeImage from '../../assets/images/market_260x173.jpg';
 import {Bling as GPT} from "react-gpt";
 
 GPT.enableSingleRequest();
-const items = {
-    name:"Christmas Pong",
-    image: ChristmasImage
-}
+
 
 const GamesDetails = (props) => {
     const [link, setLink] = useState("");
@@ -40,8 +37,12 @@ const GamesDetails = (props) => {
 
     return(
         <>
-            <div id='div-gpt-ad-1612773232807-0'>
-                <GPT adUnitPath="/419163168/https:////gamesfree.live.RectangleBanner" slotSize={[[180, 150], [336, 280], [300, 100], [300, 250]]}  />
+            <div id='div-gpt-ad-1612773232807-0' className="mb-3 text-center">
+                <GPT adUnitPath="/419163168/https:////gamesfree.live.RectangleBanner" sizeMapping={[
+                    {viewport: [0, 0], slot: [320, 50]},
+                    {viewport: [750, 0], slot: [728, 90]},
+                    {viewport: [1200, 0], slot: [1024, 120]}
+                ]}  />
             </div>
             <div className="game-detail-header d-flex justify-content-between align-items-center">
                 <img src={HomeIcon} onClick={handleHomeClick} className="cursor-pointer" />
