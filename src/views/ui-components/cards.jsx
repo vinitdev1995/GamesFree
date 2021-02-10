@@ -65,11 +65,9 @@ const Cards = (props) => {
                                         </Col>
                                         { ((index + 1) % 3 === 0 )&&
                                         <div id="" className="mb-3 mt-3 text-center">
-                                            <GPT adUnitPath="/4595/nfl.test.open"
+                                            <GPT adUnitPath="/419163168/https:////gamesfree.live.SquareBanner"
                                                  sizeMapping={[
-                                                     {viewport: [0, 0], slot: [200, 200]},
-                                                     {viewport: [750, 0], slot: [250, 250]},
-                                                     {viewport: [1050, 0], slot: [300, 300]}
+                                                     {viewport: [0, 0], slot: [320, 320]},
                                                  ]}
                                             />
                                         </div>}
