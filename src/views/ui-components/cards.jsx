@@ -63,7 +63,7 @@ const Cards = (props) => {
                                             </Card>
 
                                         </Col>
-                                        { ((index + 1) % 3 === 0 )&&
+                                        { index === 0 || ((index + 1) % 3 === 0 )&&
                                         <div id="" className="mb-3 mt-3 text-center">
                                             <GPT adUnitPath="/419163168/https:////gamesfree.live.SquareBanner"
                                                  sizeMapping={[
