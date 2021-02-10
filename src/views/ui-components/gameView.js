@@ -124,10 +124,10 @@ const GameView = (props) =>{
                 </div>
                 <div className="m-auto" style={{ maxWidth : 1000}}>
                     <Row className="text-center">
-                                {gamesDataList.sort(() => Math.random() - Math.random()).slice(0, 4).map((item)=>{
+                                {gamesDataList.sort(() => Math.random() - Math.random()).slice(0, 4).map((item, index)=>{
                                     return (
                                         <>
-                                            <Col md={4} sm={6} xs={8} lg={4} className="m-auto">
+                                            <Col md={6} sm={12} xs={12} lg={4} className="m-auto">
                                                 <Card className=" mb-3 game-card cursor-pointer" onClick={()=> handleClick(item.url)}>
                                                     <CardImg top width="100%" src={item.thumbnailUrl || img4} alt="Card image cap" className="card-image"/>
                                                     <CardBody>
@@ -136,7 +136,16 @@ const GameView = (props) =>{
                                                 </Card>
 
                                             </Col>
-                                            {/*{(window.innerWidth < 767) &&  ((index + 1) % 2 === 0 )&& <div className="mb-3"><img src={addImage} width={300} /></div>}*/}
+                                            {width <= 767  &&  ((index + 1) % 2 === 0 )&&
+                                            <div id="" className="mb-3 mt-3 text-center">
+                                                <GPT adUnitPath="/4595/nfl.test.open"
+                                                     sizeMapping={[
+                                                         {viewport: [0, 0], slot: [200, 200]},
+                                                         {viewport: [750, 0], slot: [250, 250]},
+                                                         {viewport: [1050, 0], slot: [300, 300]}
+                                                     ]}
+                                                />
+                                            </div>}
                                         </>
                                     )
                                 })

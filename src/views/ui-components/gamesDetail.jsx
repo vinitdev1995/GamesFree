@@ -49,22 +49,29 @@ const GamesDetails = (props) => {
                 <h3 className="text-white">{gameDetail && gameDetail.title || '' }</h3>
                 <img src={gameDetail && gameDetail.thumbnailUrl || ''} style={{height: 60}} />
             </div>
-            <div className="d-flex flex-row justify-content-between container">
-                <div className="d-flex flex-column side-games">
+            <div className="d-flex flex-row justify-content-between">
+                <div className="d-flex flex-column side-games mr-2">
                     {gamesList.sort(() => Math.random() - Math.random()).slice(0, 4).map((item)=>{
                         return (<img key={item.id} onClick={()=>{handleClick(item.url)}} src={item.thumbnailUrl} className="mt-3" style={{height: 97, width: 145}}/>)
                     })
                     }
                 </div>
                 <div className="w-100 text-center" key={link}>
-                    <iframe key={link} src={link} style={{ width: '90%', height: 500}} />
+                    <iframe key={link} src={link} style={{ width: '100%', height: '100vh'}} />
                 </div>
-                <div className="d-flex flex-column side-games">
+                <div className="d-flex flex-column side-games ml-2">
                     {gamesList.sort(() => Math.random() - Math.random()).slice(0, 4).map((item)=>{
                         return (<img key={item.id} onClick={()=>{handleClick(item.url)}} src={item.thumbnailUrl} className="mt-3" style={{height: 97, width: 145}}/>)
                     })
                     }
                 </div>
+            </div>
+            <div id='div-gpt-ad-1612773232807-0' className="mb-3 mt-3 text-center">
+                <GPT adUnitPath="/419163168/https:////gamesfree.live.RectangleBanner" sizeMapping={[
+                    {viewport: [0, 0], slot: [320, 50]},
+                    {viewport: [750, 0], slot: [728, 90]},
+                    {viewport: [1200, 0], slot: [1024, 120]}
+                ]}  />
             </div>
             <Row className="game-detail-box">
                 <Col sm={4} md={4} lg={4}>
@@ -75,6 +82,13 @@ const GamesDetails = (props) => {
                     <p>{gameDetail && gameDetail.description || '' }</p>
                 </Col>
             </Row>
+            <div id='div-gpt-ad-1612773232807-0' className="mb-3 mt-3 text-center">
+                <GPT adUnitPath="/419163168/https:////gamesfree.live.RectangleBanner" sizeMapping={[
+                    {viewport: [0, 0], slot: [320, 50]},
+                    {viewport: [750, 0], slot: [728, 90]},
+                    {viewport: [1200, 0], slot: [1024, 120]}
+                ]}  />
+            </div>
         </>
     );
 

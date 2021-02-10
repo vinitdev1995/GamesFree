@@ -17,6 +17,10 @@ GPT.enableSingleRequest();
 const Cards = (props) => {
     window.scroll(0 ,0)
     const [gamesList, setGamesList] = useState([]);
+    const [width, setWidth] = useState(window.innerWidth);
+    const handleWindowSizeChange = () => {
+        setWidth(window.innerWidth);
+    }
     useEffect(()=>{
         fetch("https://games.gamepix.com/games").then((res)=>{
             res.json().then((res)=> {
@@ -25,6 +29,10 @@ const Cards = (props) => {
         }).catch((e)=>{
             console.log(e)
         });
+        window.addEventListener('resize', handleWindowSizeChange);
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        }
     },[]);
     const handleClick = (link) => {
         window.location.href = '/#/gamesDetails?link='+link
@@ -46,8 +54,8 @@ const Cards = (props) => {
                                 (
 
                                     <>
-                                        <Col md={4} sm={6} xs={8} lg={4} className="m-auto">
-                                            <Card className=" mb-3 game-card cursor-pointer" onClick={()=> handleClick(item.url)}>
+                                        <Col md={6} sm={6} xs={12} lg={4} className="m-auto" >
+                                            <Card className=" mb-3 game-card cursor-pointer" key={index} onClick={()=> handleClick(item.url)}>
                                                 <CardImg top width="100%" src={item.thumbnailUrl || img4} alt="Card image cap" className="card-image"/>
                                                 <CardBody>
                                                     <CardTitle>{item.title}</CardTitle>
@@ -55,7 +63,16 @@ const Cards = (props) => {
                                             </Card>
 
                                         </Col>
-                                        {/*{(window.innerWidth < 767) &&  ((index + 1) % 2 === 0 )&& <div className="mb-3"><img src={addImage} width={300} /></div>}*/}
+                                        { ((index + 1) % 3 === 0 )&&
+                                        <div id="" className="mb-3 mt-3 text-center">
+                                            <GPT adUnitPath="/4595/nfl.test.open"
+                                                 sizeMapping={[
+                                                     {viewport: [0, 0], slot: [200, 200]},
+                                                     {viewport: [750, 0], slot: [250, 250]},
+                                                     {viewport: [1050, 0], slot: [300, 300]}
+                                                 ]}
+                                            />
+                                        </div>}
                                     </>
 
                                 ))
