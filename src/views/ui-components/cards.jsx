@@ -12,12 +12,13 @@ import {Bling as GPT} from "react-gpt";
 import img4 from '../../assets/images/big/img4.jpg';
 import thumbImage from '../../assets/images/sidebox/market_105x70.jpg'
 
-GPT.enableSingleRequest();
+// GPT.enableSingleRequest();
 
 const Cards = (props) => {
     window.scroll(0 ,0)
     const [gamesList, setGamesList] = useState([]);
     const [width, setWidth] = useState(window.innerWidth);
+    const [isLoading, setLoading] = useState(true);
     const handleWindowSizeChange = () => {
         setWidth(window.innerWidth);
     }
@@ -25,9 +26,11 @@ const Cards = (props) => {
         fetch("https://games.gamepix.com/games").then((res)=>{
             res.json().then((res)=> {
                 setGamesList(res.data);
+                setLoading(false);
             })
         }).catch((e)=>{
             console.log(e)
+            setLoading(false);
         });
         window.addEventListener('resize', handleWindowSizeChange);
         return () => {
@@ -37,6 +40,9 @@ const Cards = (props) => {
     const handleClick = (link) => {
         window.location.href = '/#/gamesDetails?link='+link
     };
+    if (isLoading) {
+        return <div>Loading</div>;
+    }
     return (
         <div>
             <div id='div-gpt-ad-1612773232807-0' className="mb-3 text-center">
@@ -64,13 +70,13 @@ const Cards = (props) => {
 
                                         </Col>
                                         { index === 0 || ((index + 1) % 3 === 0 )&&
-                                        <div id="" className="mb-3 mt-3 text-center">
-                                            <GPT adUnitPath="/419163168/https:////gamesfree.live.SquareBanner"
-                                                 sizeMapping={[
-                                                     {viewport: [0, 0], slot: [320, 320]},
-                                                 ]}
-                                            />
-                                        </div>}
+                                        <Col  className="mb-3 mt-3 text-center"  md={6} sm={6} xs={12} lg={4}>
+                                            <GPT adUnitPath="/419163168/https:////gamesfree.live.RectangleBanner" sizeMapping={[
+                                                {viewport: [0, 0], slot: [300, 250]},
+                                                {viewport: [750, 0], slot: [300, 100]},
+                                                {viewport: [1200, 0], slot: [336, 280]}
+                                            ]}  />
+                                        </Col>}
                                     </>
 
                                 ))
