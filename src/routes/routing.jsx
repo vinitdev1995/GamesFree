@@ -12,12 +12,7 @@ import Policy from "../views/ui-components/policy";
 import Terms from "../views/ui-components/TermsOfUse";
 import ContactUs from "../views/ui-components/contactus/contactUs";
 var ThemeRoutes = [
-  {
-    path: '/card',
-    name: 'Cards',
-    component: Cards
-  },
-  {
+    {
     path: '/gamesDetails',
     name: 'gamesDetails',
     component: GamesDetails
@@ -46,6 +41,11 @@ var ThemeRoutes = [
     path: '/advertise_with_us',
     name: 'Advertise',
     component: ContactUs
+  },
+  {
+    path: '/:id',
+    name: 'Cards',
+    component: Cards
   },
   {
     path: '/',

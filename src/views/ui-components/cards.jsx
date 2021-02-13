@@ -5,7 +5,10 @@ import {
     CardBody,
     CardTitle,
     Row,
-    Col
+    Col,
+    Pagination,
+    PaginationItem,
+    PaginationLink
 } from 'reactstrap';
 import {Bling as GPT} from "react-gpt";
 
@@ -19,6 +22,10 @@ const Cards = (props) => {
     const [gamesList, setGamesList] = useState([]);
     const [width, setWidth] = useState(window.innerWidth);
     const [isLoading, setLoading] = useState(true);
+    const [page, setPage] = useState(1);
+    const [total, setTotal] = useState(0);
+    const [paginationData, setPaginationData] = useState([]);
+    const [pageNumbers, setPageNumbers] = useState([]);
     const handleWindowSizeChange = () => {
         setWidth(window.innerWidth);
     }
@@ -27,18 +34,59 @@ const Cards = (props) => {
             res.json().then((res)=> {
                 setGamesList(res.data);
                 setLoading(false);
+                setPaginationData(res.data.slice(0, 14));
             })
         }).catch((e)=>{
             console.log(e)
             setLoading(false);
         });
+        if(props.match.params.id){
+            setPage(parseInt(props.match.params.id));
+        }
         window.addEventListener('resize', handleWindowSizeChange);
         return () => {
             window.removeEventListener('resize', handleWindowSizeChange);
         }
     },[]);
+
+    const setLocation = (location) => {
+        window.location.href = '/'+location
+    };
+
+    useEffect(()=>{
+        const T = gamesList.length / 14;
+        setTotal(parseInt(T));
+        let pageData = [];
+        for (let i = 0; i < T-1; i++) {
+            pageData.push(
+                <PaginationItem key={i} active={(page-1) === i ? true : false}>
+                    <PaginationLink onClick={() => (setLocation(i+1))} >
+                        {i + 1}
+                    </PaginationLink>
+                </PaginationItem>
+            );
+        }
+        setPageNumbers(pageData);
+    },[gamesList]);
+
+    useEffect(()=> {
+        const data = gamesList.slice((page-1)*14, page*14 );
+        setPaginationData(data);
+        let pageData = [];
+        for (let i = 0; i < total; i++) {
+            pageData.push(
+                <PaginationItem key={i} active={(page-1) === i ? true : false}>
+                    <PaginationLink onClick={() => props.history.push(`/${i + 1}`)} >
+                        {i + 1}
+                    </PaginationLink>
+                </PaginationItem>
+            );
+        }
+        setPageNumbers(pageData);
+    },[page])
+
     const handleClick = (link) => {
-        window.location.href = '/#/gamesDetails?link='+link
+        props.history.push('/gamesDetails?link='+link)
     };
     if (isLoading) {
         return <div>Loading</div>;
@@ -56,7 +104,7 @@ const Cards = (props) => {
             <Row>
                 <Col sm="9">
                     <Row>
-                        {gamesList && gamesList.map((item, index) =>
+                        {paginationData && paginationData.map((item, index) =>
                                 (
 
                                     <>
@@ -129,7 +177,15 @@ const Cards = (props) => {
 
                 </Col>
             </Row>
-
+            <Pagination aria-label="Page navigation example">
+                <PaginationItem disabled={page <= 1}>
+                    <PaginationLink onClick={() => setLocation(page - 1)} previous />
+                </PaginationItem>
+                {pageNumbers}
+                <PaginationItem disabled={page >= total}>
+                    <PaginationLink onClick={() => setLocation(page + 1)} next />
+                </PaginationItem>
+            </Pagination>
         </div>
     );
 }
